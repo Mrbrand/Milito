@@ -67,7 +67,7 @@
   
     setInterval(function(){
     
-       /* $.post("handler.php?player", {lat: Latitude, lon: Longitude, id: player_id}, function(result){
+        $.post("http://betarabbit.com/milito/handler.php?player", {lat: Latitude, lon: Longitude, id: player_id}, function(result){
             var obj;
            
             obj = JSON.parse(result);
@@ -113,8 +113,8 @@
             map.removeLayer(playerGroup); 
             playerGroup = L.featureGroup(playerArray).addTo(map);
             
-        });*/
-    
+        });
+            
     }, 1000);
     
     
