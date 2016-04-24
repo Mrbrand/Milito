@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>GPS sandbox</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <script src="javascript/jquery-2.2.3.min.js"></script> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    
+    </head>
+    <body>
+    <div id="map" style="width: 600px; height: 400px"></div>
+    
+    <div class="lat"></div>
+    <div class="long"></div>
+    <div class="counter"></div>
+    
+    </body>
+</html>
+    
+<script>
+    var counter = 0;
+    var lat= 59.09837; 
+    var long = 17.57529;   
+    
+    navigator.geolocation.watchPosition(function(position){
+    
+        // These variables update every time the location changes
+        var Latitude = position.coords.latitude;
+        var Longitude = position.coords.longitude;
+        
+        $(".lat").html(Latitude);
+        $(".long").html(Longitude);
+        $(".counter").html(counter++);
+        
+
+        
+    }, function(error){
+        // You can detect the reason and alert it; I chose not to.   
+        alert('We could not get your location');
+    },{
+        // It'll stop looking after an hour. Enabling high accuracy tells it to use GPS if it's available  
+        timeout: 1000,
+        maximumAge: 600000,
+        enableHighAccuracy: true
+    });
+</script>
