@@ -1,4 +1,16 @@
- var counter = 0;
+ 	
+ 	
+ 	function load_data(){
+ 	
+ 	 $.ajax({url: "http://betarabbit.com/milito/handler.php?test_data", success: function(result){
+        $("#output").html(result);
+    }});
+ 	
+ 	
+ 	}
+ 	
+ 	
+ 	var counter = 0;
     var Latitude; 
     var Longitude;
     var player_id = 1;
